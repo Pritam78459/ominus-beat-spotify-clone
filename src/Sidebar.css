@@ -3,6 +3,7 @@
     height :100vh;
     flex: 0.2;
     color: white;
+    overflow-y: overlay;
     height:100vh;
     padding-left: 10px;
     padding-right: 10px;
