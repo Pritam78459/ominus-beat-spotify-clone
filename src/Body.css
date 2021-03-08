@@ -7,3 +7,54 @@
     
 background: linear-gradient(0deg, rgba(2,0,36,1) 47%, rgba(143,0,255,1) 91%);
 }
+
+.body_info {
+    display:flex;
+    align-items: flex-end;
+    padding:10px;
+}
+
+.body_info > img {
+    height: 20vw;
+    margin: 0 20px 0 0;
+    box-shadow: 0 4px 60px rgba(0,0,0, 0.5);
+}
+
+.body_infoText{
+    flex: 1;
+}
+
+.body_infoText > h2 {
+    font-size:48px;
+    margin-bottom: 10px;
+}
+
+.body_infoText > p {
+    font-size:14px;
+}
+
+.body__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .body__songs {
+    z-index: 1;
+    margin: 20px -30px;
+  }
+
+.body__icons > .MuiSvgIcon-root {
+    margin-right: 20px;
+  }
+
+  .body__shuffle:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
+  }
+
+  .body__shuffle {
+    font-size: 80px !important;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
