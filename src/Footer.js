@@ -8,8 +8,13 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import { Grid , Slider } from "@material-ui/core";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay"
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
+import {useDataLayerValue} from './DataLayer';
 
 function Footer() {
+
+    const [{current_track}, dispatch] = useDataLayerValue();
+    console.log(current_track)
+
     return (
         <div className="footer" >
             <div className="footer__left" >
@@ -17,17 +22,19 @@ function Footer() {
                 className="footer_albumLogo"
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FwlJQEuRqJp8%2Fmaxresdefault.jpg&f=1&nofb=1" alt=""/>
                 <div className="footer__songInfo">
-                <h4>No song is playing</h4>
-                <p>...</p>
+                <h4>{current_track?.name}</h4>
+                <p >{current_track?.artists.map((artist) => artist.name).join(", ")} -{" "} {current_track?.album.name} </p>
                 </div>
             </div>
             <div className="footer__center" >
-                <ShuffleIcon className="footer__color"/>
-                <SkipPreviousIcon className="footer__icon"/>
-                <PlayCircleOutlineIcon fontSize="large" className="footer__icon"/>
-                <SkipNextIcon className="footer__icon"/>
-                <RepeatIcon className="footer__color"/>
+                
+                <audio controls>
+                    
+                    <source src = {current_track?.preview_url}></source>
+                </audio>
+                
             </div>
+            
             <div className="footer__right">
                 <Grid container spacing={2}>
                 <Grid item>

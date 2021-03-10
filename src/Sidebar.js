@@ -6,11 +6,16 @@ import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import {useDataLayerValue} from './DataLayer';
+import SpotifyWebApi from 'spotify-web-api-js';
+
+
 
 function Sidebar() {
 
-    const [{playlists}, dispatch] = useDataLayerValue();
+    const [{playlists, discover_weekly}, dispatch] = useDataLayerValue();
 
+
+   
     return (
         <div className="sidebar">
             <img className="sidebar_logo" src = {title} alt = "logo"></img>
@@ -22,14 +27,15 @@ function Sidebar() {
 
             <strong className="sidebar_title" >Playlists</strong>
             <hr></hr>
-
+            
             {playlists?.items?.map(playlist => (
-                <SidebarOption title={playlist.name}/>
+                <SidebarOption PLID={playlist.uri.split(":")[2]} title={playlist.name}/>
             ))}
+            
 
             
         </div>
     )
 }
 
-export default Sidebar
+export default Sidebar;

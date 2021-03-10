@@ -16,7 +16,7 @@ function Body({spotify}) {
             <Header spotify ={spotify} />
 
             <div className="body_info" >
-                <img src={discover_weekly?.images[0].url} alt=""/>
+                <img src={discover_weekly?.images.url} alt=""/>
                 <div className="body_infoText" >
                     <strong>Playlist</strong>
                     <h2>Discover New Music</h2>
@@ -30,7 +30,7 @@ function Body({spotify}) {
                     <FavoriteIcon fontSize="large" />
                     <MoreHorizIcon/>
                 </div>
-
+                
                 {discover_weekly?.tracks.items.map(item => (
                     <SongRow track={item.track}/>
                 ))}

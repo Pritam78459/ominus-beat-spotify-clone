@@ -5,6 +5,7 @@
     align-items:center;
     z-index:100;
     color:white;
+    overflow-y: overlay;
 }
 
 .songRow:hover {
