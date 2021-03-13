@@ -19,10 +19,10 @@ function SongRow({track}) {
     return (
         <div className="songRow" >
             <img className="songRow_album" src={track.album.images[0].url} alt=""/>
-            <div className="songRow_info" >
+            <div className="songRow_info" onClick={changeCurrentTrack} >
                 <h1>{track.name}</h1>
                 <a >{track.artists.map((artist) => artist.name).join(", ")} -{" "} {track.album.name} </a>
-                <button onClick={changeCurrentTrack} >play</button>
+                
             </div>
             
         </div>

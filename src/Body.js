@@ -9,7 +9,8 @@ import SongRow from './SongRow';
 
 function Body({spotify}) {
 
-    const [{discover_weekly}, dispatch] = useDataLayerValue();
+    const [{discover_weekly,current_playlist}, dispatch] = useDataLayerValue();
+    console.log(current_playlist)
 
     return (
         <div className="body" >

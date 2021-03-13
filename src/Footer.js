@@ -20,7 +20,7 @@ function Footer() {
             <div className="footer__left" >
                 <img
                 className="footer_albumLogo"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FwlJQEuRqJp8%2Fmaxresdefault.jpg&f=1&nofb=1" alt=""/>
+                src={current_track?.album.images[0].url} alt=""/>
                 <div className="footer__songInfo">
                 <h4>{current_track?.name}</h4>
                 <p >{current_track?.artists.map((artist) => artist.name).join(", ")} -{" "} {current_track?.album.name} </p>

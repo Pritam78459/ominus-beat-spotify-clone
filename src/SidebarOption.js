@@ -1,20 +1,29 @@
 import React from 'react';
 import './SidebarOption.css'
 import {useDataLayerValue} from './DataLayer';
+import {getPlaylist} from './App';
+import SpotifyWebApi from 'spotify-web-api-js';
+
+const spotify =  new SpotifyWebApi();
 
 function SidebarOption({title, Icon, PLID}) {
 
-    const [{current_playlist}, dispatch] = useDataLayerValue();
+    const [{current_playlist, token}, dispatch] = useDataLayerValue();
+
+    spotify.setAccessToken(token);
     
 
     function changePlaylist() {
         
-        dispatch({
-            type: "SET_CURRENT_PLAYLIST",
-            current_playlist: PLID,
-        })
+        spotify.getPlaylist(PLID).then(response => {
+            console.log(PLID);
+            dispatch({
+              type: "SET_DISCOVER_WEEKLY",
+              discover_weekly: response,
+            });
+          })
 
-        //console.log(PLID)
+        
     }
 
     return (
